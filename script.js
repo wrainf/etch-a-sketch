@@ -7,6 +7,7 @@ let rainbowMode = false;
 let earserMode = false;
 
 const body = document.querySelector('body');
+const content = document.querySelector('#content')
 const setNewDimension = document.querySelector('#new-dimension');
 const toggleRainbow = document.querySelector('#rainbow');
 const toggleDefault = document.querySelector('#single-color');
@@ -17,7 +18,9 @@ const bucket = document.querySelector('#bucket');
 
 let grid = createGrid(dimension);
 canvas.appendChild(grid);
-body.appendChild(canvas);
+content.appendChild(canvas)
+body.appendChild(content);
+
 
 eraser.addEventListener('click',()=>{
     color = 'white';
@@ -78,7 +81,7 @@ function selectColor(){
 
 function createGrid(dimension){
     let grid = document.createElement('div');
-    grid.style.cssText = 'border: 2px solid black; width: 600px; height: 600px;display:flex; flex-direction: column';
+    grid.style.cssText = 'border: 2px solid #4e5255; width: 600px; height: 600px;display:flex; flex-direction: column; background: white';
     for (let x = 1; x <= dimension; x++) {
         let row = document.createElement('div');
         row.style.cssText = 'display:flex';

@@ -9,13 +9,23 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <button id="new-dimension">Change Dimension</button>
-    <button id="reset">Reset Canvas</button>
-    <button id="rainbow">Rainbow Mode</button>
-    <button id="single-color">Single Color Mode</button>
-    <button id="eraser">Eraser</button>
-    <button id="bucket">Bucket</button>
-    <input id= "color-selection" type="color" value="#00FFFF">
+    <div class="header">Etch A Sketch</div>
+    <div class="content" id="content">
+        <div class="tool-container">
+            <button class="tool" id="new-dimension">Resize</button>
+            <button class="tool" id="reset">Reset</button>
+            <button class="tool" id="rainbow">Rainbow</button>
+            <button class="tool" id="single-color">Paint</button>
+            <button class="tool" id="eraser">Eraser</button>
+            <button class="tool" id="bucket">Bucket</button>
+            <div class="color-circle">
+                <input name="color-select"id= "color-selection" type="color" value="#00FFFF" ></input>
+            </div>
+            
+        </div>
+    </div>
+    
+    
 
 </body>
 </html>
