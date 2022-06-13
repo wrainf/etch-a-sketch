@@ -6,8 +6,6 @@ let canvas = document.createElement('div');
 let rainbowMode = false;
 let earserMode = false;
 
-
-
 const body = document.querySelector('body');
 const setNewDimension = document.querySelector('#new-dimension');
 const toggleRainbow = document.querySelector('#rainbow');
@@ -15,11 +13,24 @@ const toggleDefault = document.querySelector('#single-color');
 const resetButton = document.querySelector('#reset');
 const colorSelector = document.querySelector('#color-selection');
 const eraser = document.querySelector('#eraser');
+const bucket = document.querySelector('#bucket');
+
+let grid = createGrid(dimension);
+canvas.appendChild(grid);
+body.appendChild(canvas);
 
 eraser.addEventListener('click',()=>{
     color = 'white';
     earserMode = true;
     rainbowMode = false;
+})
+
+bucket.addEventListener('click', ()=>{
+    let boxes = document.querySelectorAll('#box');
+    for (let index = 0; index < boxes.length; index++) {
+        boxes[index].style.backgroundColor = color;
+        
+    }
 })
 
 
@@ -78,6 +89,7 @@ function createGrid(dimension){
             box.style.width = boxDimension+'px';
             box.style.height = boxDimension+'px';
             box.setAttribute("onmouseover","colorBox(this,selectColor())");
+            box.setAttribute("id", "box")
             row.appendChild(box);
             
         }
@@ -87,13 +99,6 @@ function createGrid(dimension){
     }
     return grid;
 }
-
-let grid = createGrid(dimension);
-canvas.appendChild(grid);
-
-
-body.appendChild(canvas);
-
 
 
 function colorBox(box, color){
