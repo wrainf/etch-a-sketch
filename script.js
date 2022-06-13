@@ -12,6 +12,7 @@ const setNewDimension = document.querySelector('#new-dimension');
 const toggleRainbow = document.querySelector('#rainbow');
 const toggleDefault = document.querySelector('#single-color');
 const resetButton = document.querySelector('#reset');
+const colorSelector = document.querySelector('#color-selection');
 
 
 setNewDimension.addEventListener('click',()=>{
@@ -24,6 +25,10 @@ setNewDimension.addEventListener('click',()=>{
     let grid = createGrid(dimension);
 
     canvas.appendChild(grid);
+})
+
+colorSelector.addEventListener("change", (event)=>{
+    color = event.target.value;
 })
 
 resetButton.addEventListener('click', () => {reset()});
