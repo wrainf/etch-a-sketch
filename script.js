@@ -4,7 +4,7 @@ let color = 'aqua';
 let canvas = document.createElement('div');
 
 let rainbowMode = false;
-let defaultMode = true;
+
 
 
 const body = document.querySelector('body');
@@ -33,6 +33,23 @@ function reset(){
     canvas.appendChild(createGrid(dimension));
 }
 
+toggleRainbow.addEventListener('click',()=>{
+    rainbowMode = true;
+})
+
+toggleDefault.addEventListener('click', ()=>{
+    rainbowMode = false;
+})
+
+function selectColor(){
+    if(rainbowMode == true){
+        let color = (Math.random() * 0xfffff * 1000000).toString(16);
+        return '#' + color.slice(0, 6);
+    }else{
+        return color
+    }
+}
+
 function createGrid(dimension){
     let grid = document.createElement('div');
     grid.style.cssText = 'border: 2px solid black; width: 600px; height: 600px;display:flex; flex-direction: column';
@@ -45,7 +62,7 @@ function createGrid(dimension){
             let box = document.createElement('div');
             box.style.width = boxDimension+'px';
             box.style.height = boxDimension+'px';
-            box.setAttribute("onmouseover","colorBox(this,color)");
+            box.setAttribute("onmouseover","colorBox(this,selectColor())");
             row.appendChild(box);
             
         }
