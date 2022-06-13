@@ -4,6 +4,7 @@ let color = 'aqua';
 let canvas = document.createElement('div');
 
 let rainbowMode = false;
+let earserMode = false;
 
 
 
@@ -13,6 +14,13 @@ const toggleRainbow = document.querySelector('#rainbow');
 const toggleDefault = document.querySelector('#single-color');
 const resetButton = document.querySelector('#reset');
 const colorSelector = document.querySelector('#color-selection');
+const eraser = document.querySelector('#eraser');
+
+eraser.addEventListener('click',()=>{
+    color = 'white';
+    earserMode = true;
+    rainbowMode = false;
+})
 
 
 setNewDimension.addEventListener('click',()=>{
@@ -44,6 +52,8 @@ toggleRainbow.addEventListener('click',()=>{
 
 toggleDefault.addEventListener('click', ()=>{
     rainbowMode = false;
+    eraserMode = false;
+    color = colorSelector.value;
 })
 
 function selectColor(){
