@@ -3,6 +3,9 @@ let dimension = 16;
 let color = 'aqua';
 let canvas = document.createElement('div');
 
+let rainbowMode = false;
+let defaultMode = true;
+
 
 const body = document.querySelector('body');
 const setNewDimension = document.querySelector('#new-dimension');
@@ -22,6 +25,13 @@ setNewDimension.addEventListener('click',()=>{
 
     canvas.appendChild(grid);
 })
+
+resetButton.addEventListener('click', () => {reset()});
+
+function reset(){
+    canvas.removeChild(canvas.firstElementChild);
+    canvas.appendChild(createGrid(dimension));
+}
 
 function createGrid(dimension){
     let grid = document.createElement('div');
